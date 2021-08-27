@@ -10,7 +10,7 @@ namespace MemoryStuff
     {
         static void Main(string[] args)
         {
-
+            // this was added in C# 7 - dispose is called at the end of the block where this is declared for you automatically!
             using var conn = new TylersSuperOptimizedSqlConnection();
 
             conn.Open();
