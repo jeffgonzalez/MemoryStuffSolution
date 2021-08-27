@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace MemoryStuff
 {
@@ -6,7 +7,17 @@ namespace MemoryStuff
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            var content = "";
+
+            foreach(var x in Enumerable.Range(1,10000))
+            {
+                content += x + ",";
+            }
+
+            Console.WriteLine(content);
+
+
         }
     }
 }
