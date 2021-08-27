@@ -11,30 +11,31 @@ namespace MemoryStuff
         static void Main(string[] args)
         {
 
-            var conn = new TylersSuperOptimizedSqlConnection();
+            using (var conn = new TylersSuperOptimizedSqlConnection())
+            {
 
-            conn.Open();
+                conn.Open();
 
-            Console.WriteLine(conn.RunCommand("SELECT password from users"));
+                Console.WriteLine(conn.RunCommand("SELECT password from users"));
 
-            conn.Close(); // destructor is gone...
+                conn.Close(); // destructor is gone...
 
-            // 60 lines of code later
+                // 60 lines of code later
 
-            conn.Open();
+                conn.Open();
 
-            conn.RunCommand("oh yeah, that thing");
+                conn.RunCommand("oh yeah, that thing");
 
-            // and they forget to close it.
+                // and they forget to close it.
+                
+            } //  conn.Dispose(); // I am so DONE with this, I PROMISE I won't touch it again.
 
-
-            conn.Dispose(); // I am so DONE with this, I PROMISE I won't touch it again.
 
             // IF You create an object that has a dispose method, call that method when you are done with it.
 
             // 30 lines of code later.
 
-            conn.Open();
+            
         }
     }
 
