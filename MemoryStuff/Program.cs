@@ -9,15 +9,22 @@ namespace MemoryStuff
         static void Main(string[] args)
         {
 
-            var content = new StringBuilder();
+            var x = "Fido";
+            var y = x;
 
-            foreach(var x in Enumerable.Range(1,10000))
+            y = "Tacos";
+
+            Console.WriteLine(x);
+
+            Console.WriteLine(ChangeTheDog(x));
+
+            Console.WriteLine(x);
+
+            string ChangeTheDog(string p)
             {
-                content.Append(x + ",");
+                p = "Rover";
+                return p.ToUpper();
             }
-
-            Console.WriteLine(content);
-
 
         }
     }
